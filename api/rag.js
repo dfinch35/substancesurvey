@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   // Qdrant cluster details (safe to hardcode)
   const QDRANT_URL =
-    "https://8c74508a-15d3-403a-8344-00eaeb71362e.us-west-1-0.aws.cloud.qdrant.io";
+    "https://8c74508a-15d3-403a-8344-00eaeb71362e.us-west-1-0.aws.cloud.qdrant.io:6333";
   const QDRANT_CLUSTER = "org_health";
   const QDRANT_COLLECTION = "church_survey";
 
