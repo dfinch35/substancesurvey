@@ -1,0 +1,9 @@
+{
+  "name": "substancesurvey",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@qdrant/js-client-rest": "latest",
+    "openai": "latest"
+  }
+}
