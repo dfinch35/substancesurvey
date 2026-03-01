@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
  // --- CORS HEADERS ---
 //  res.setHeader("Access-Control-Allow-Origin", "https://innovaitions.ai");
-  res.setHeader("Access-Control-Allow-Origin", "https://falcon-gold-skhg.squarespace.com/survey-chat");
+  res.setHeader("Access-Control-Allow-Origin", "https://falcon-gold-skhg.squarespace.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
