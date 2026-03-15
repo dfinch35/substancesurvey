@@ -4,7 +4,7 @@ import OpenAI from "openai";
 export default async function handler(req, res) {
 
  // --- CORS HEADERS ---
-  res.setHeader("Access-Control-Allow-Origin", "https://northstaraudioinnovations.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://northstaraudioinnovations.com/surveychat");
  // res.setHeader("Access-Control-Allow-Origin", "https://falcon-gold-skhg.squarespace.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
