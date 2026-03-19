@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const client = new QdrantClient({ url: process.env.QDRANT_URL, apiKey: process.env.QDRANT_API_KEY });
 
   // Example: aggregate average score by campus × category
-  const campuses = ["Main", "East", "West"];
+  const campuses = ["Northtown", "Westside", "Southside", "Monterrey"];
   const categories = ["Worship", "Community", "Teaching", "Outreach"];
 
   const matrix = [];
