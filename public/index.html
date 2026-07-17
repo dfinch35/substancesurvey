@@ -1,8 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head><title>substancesurvey backend</title></head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title data-i18n="title">substancesurvey backend</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+             color: #141414; margin: 40px; }
+      .i18n-toggle { position: fixed; top: 12px; right: 12px; display: inline-flex;
+             border: 1px solid rgba(0,0,0,.12); border-radius: 999px; padding: 3px; }
+      .i18n-toggle button { border: none; background: transparent; cursor: pointer;
+             font: 700 12px sans-serif; color: #6f6f6f; padding: 5px 11px; border-radius: 999px; }
+      .i18n-toggle button.active { background: #ef3d23; color: #fff; }
+    </style>
+  </head>
   <body>
-    <h1>Backend is running</h1>
-    <p>Use the API at /api/rag</p>
+    <h1 data-i18n="heading">Backend is running</h1>
+    <p data-i18n="body">Use the API at /api/rag</p>
+
+    <div class="i18n-toggle">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="es">ES</button>
+    </div>
+
+    <script>
+      // Minimal self-contained toggle — this page is just a backend health notice.
+      var STR = {
+        en: { title: "substancesurvey backend", heading: "Backend is running", body: "Use the API at /api/rag" },
+        es: { title: "backend de substancesurvey", heading: "El backend está en ejecución", body: "Usa la API en /api/rag" },
+      };
+      function setLang(l) {
+        if (!STR[l]) return;
+        try { localStorage.setItem('substance.lang', l); } catch (e) {}
+        document.documentElement.lang = l;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          el.textContent = STR[l][el.getAttribute('data-i18n')] || el.textContent;
+        });
+        document.querySelectorAll('.i18n-toggle button').forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-lang') === l);
+        });
+      }
+      document.querySelector('.i18n-toggle').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (b) setLang(b.getAttribute('data-lang'));
+      });
+      var saved = 'en';
+      try { saved = localStorage.getItem('substance.lang') || (navigator.language || 'en').slice(0,2); } catch (e) {}
+      setLang(STR[saved] ? saved : 'en');
+    </script>
   </body>
 </html>
